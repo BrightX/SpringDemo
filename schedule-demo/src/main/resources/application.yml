@@ -1,0 +1,8 @@
+spring:
+  rabbitmq:
+    host: centos7.com
+    port: 5672
+    password: guest
+    username: guest
+    publisher-confirm-type: correlated
+    virtual-host: /spring-demo

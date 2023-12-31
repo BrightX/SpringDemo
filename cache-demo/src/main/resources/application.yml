@@ -1,0 +1,2 @@
+spring:
+  jackson.time-zone: Asia/Shanghai

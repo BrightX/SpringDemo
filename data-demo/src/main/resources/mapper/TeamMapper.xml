@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bright.data.mapper.TeamMapper">
+    <select id="findAll" resultType="com.bright.data.pojo.entity.Team">
+        select * from team where removed = 0;
+    </select>
+
+    <select id="findByUserId" resultType="com.bright.data.pojo.entity.Team">
+        select *
+        from team
+        where id = (
+            select team_id
+            from user
+            where user.id = #{userId}
+              and team_id is not null
+            limit 1
+        )
+        limit 1;
+    </select>
+
+    <select id="findTeamUser" resultType="com.bright.data.pojo.entity.User">
+        select id, username, nickname, avatar, email
+        from user
+        where team_id = #{teamId}
+    </select>
+
+    <update id="joinTeam">
+        update user set team_id = #{teamId} where id = #{userId} limit 1
+    </update>
+</mapper>

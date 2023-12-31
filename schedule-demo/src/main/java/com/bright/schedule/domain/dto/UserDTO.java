@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * @author 徐亮亮
+ * @author Bright Xu
  * @since 2023/1/1
  */
 @Getter
